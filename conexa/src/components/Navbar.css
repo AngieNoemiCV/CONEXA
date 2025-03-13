@@ -1,0 +1,45 @@
+/* Estilos básicos para el menú de servicios */
+nav {
+    display: flex;
+    gap: 20px;
+    padding: 10px;
+    position: relative; /* Asegura que el menú desplegable esté posicionado correctamente */
+    z-index: 100; /* Asegura que el navbar esté por encima de otros elementos */
+  }
+  
+  .services-container {
+    position: relative;
+  }
+  
+  .services-menu {
+    position: absolute;
+    top: 100%; /* Coloca el menú debajo del enlace "Servicios" */
+    left: 0;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    opacity: 0; /* Inicialmente invisible */
+    visibility: hidden; /* Inicialmente oculto */
+    transform: translateY(-10px); /* Efecto de desplazamiento */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Transición suave */
+    z-index: 1000; /* Asegura que el menú esté por encima de otros elementos */
+  }
+  
+  .services-menu.open {
+    opacity: 1; /* Visible cuando está abierto */
+    visibility: visible; /* Visible cuando está abierto */
+    transform: translateY(0); /* Sin desplazamiento cuando está abierto */
+  }
+  
+  .services-menu a {
+    color: black;
+    text-decoration: none;
+    padding: 5px 10px;
+  }
+  
+  .services-menu a:hover {
+    background-color: #f0f0f0;
+  }

@@ -1,0 +1,47 @@
+/* Estilos generales */
+.paquetes-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  /* Estilos para cada paquete */
+  .paquete {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .paquete p {
+    font-size: 1.1rem;
+    color: #555;
+    margin: 0;
+  }
+  
+  /* Estilos para el botón "Contratar" */
+  .contratar-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .contratar-btn:hover {
+    background-color: #0056b3;
+  }
