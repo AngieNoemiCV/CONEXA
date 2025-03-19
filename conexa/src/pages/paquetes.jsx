@@ -12,6 +12,7 @@ const Paquetes = () => {
   const [mensaje, setMensaje] = useState('');
   const [errorTelefono, setErrorTelefono] = useState('');
   const [errorCorreo, setErrorCorreo] = useState('');
+  const [mostrarFormulario, setMostrarFormulario] = useState(false); // Estado para controlar la visibilidad del formulario
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -55,33 +56,69 @@ const Paquetes = () => {
       setCorreo('');
       setTelefono('');
       setPaqueteSeleccionado('');
+      setMostrarFormulario(false); // Ocultar el formulario después de enviar
     } catch (error) {
       setMensaje('Hubo un error al enviar tu solicitud. Inténtalo de nuevo.');
     }
   };
 
+  const handleContratarClick = (paquete) => {
+    setPaqueteSeleccionado(paquete); // Establecer el paquete seleccionado
+    setMostrarFormulario(true); // Mostrar el formulario
+  };
+
   return (
     <div className="paquetes-container">
+      {/* Lema inspirador */}
+      <div className="lema">
+        <h2>¡Conéctate a la velocidad que necesitas!</h2>
+        <p>
+          En un mundo donde la conexión lo es todo, ofrecemos paquetes de Internet diseñados para
+          adaptarse a tu estilo de vida. Ya sea para trabajar, estudiar, jugar o disfrutar de tu
+          entretenimiento favorito, tenemos el plan perfecto para ti.
+        </p>
+      </div>
+
+      {/* Consejos para elegir el mejor paquete */}
+      <div className="consejos">
+        <h2>Consejos para elegir el mejor paquete según tus necesidades</h2>
+        <ul>
+          <li>
+            <strong>Si solo navegas por internet, revisas redes sociales y ves videos ocasionales →</strong> 5 MG
+          </li>
+          <li>
+            <strong>Si haces videollamadas, usas Netflix o YouTube en HD y conectas un par de dispositivos →</strong> 10 MG
+          </li>
+          <li>
+            <strong>Si descargas archivos frecuentemente, juegas en línea o haces streaming en Full HD →</strong> 15 MG
+          </li>
+          <li>
+            <strong>Si tienes varios dispositivos conectados al mismo tiempo, haces teletrabajo o quieres calidad en 4K →</strong> 20 MG
+          </li>
+        </ul>
+      </div>
+
+      {/* Lista de paquetes */}
       <h1>Paquetes Disponibles</h1>
       <div className="paquete">
         <p>🔹 Paquete - 5 MG - $350/mes</p>
-        <button onClick={() => setPaqueteSeleccionado('5 MG - $350/mes')}>Contratar</button>
+        <button onClick={() => handleContratarClick('5 MG - $350/mes')}>Contratar</button>
       </div>
       <div className="paquete">
         <p>🔹 Paquete - 10 MG - $580/mes</p>
-        <button onClick={() => setPaqueteSeleccionado('10 MG - $580/mes')}>Contratar</button>
+        <button onClick={() => handleContratarClick('10 MG - $580/mes')}>Contratar</button>
       </div>
       <div className="paquete">
         <p>🔹 Paquete - 15 MG - $730/mes</p>
-        <button onClick={() => setPaqueteSeleccionado('15 MG - $730/mes')}>Contratar</button>
+        <button onClick={() => handleContratarClick('15 MG - $730/mes')}>Contratar</button>
       </div>
       <div className="paquete">
         <p>🔹 Paquete - 20 MG - $1044/mes</p>
-        <button onClick={() => setPaqueteSeleccionado('20 MG - $1044/mes')}>Contratar</button>
+        <button onClick={() => handleContratarClick('20 MG - $1044/mes')}>Contratar</button>
       </div>
 
-      {/* Formulario para contratar */}
-      {paqueteSeleccionado && (
+      {/* Formulario para contratar (solo se muestra si mostrarFormulario es true) */}
+      {mostrarFormulario && (
         <form onSubmit={handleSubmit} className="formulario-contratar">
           <h2>Contratar: {paqueteSeleccionado}</h2>
           <div className="form-group">

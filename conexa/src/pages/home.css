@@ -1,93 +1,273 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+/* Estilos generales */
+.App {
+  font-family: Arial, sans-serif;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+/* Hero Section */
+.hero {
+  background-color: #007bff;
+  color: white;
+  padding: 60px 20px;
 }
 
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.hero p {
+  font-size: 1.2rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+/* Quiénes somos */
+.quienes-somos {
+  padding: 40px 20px;
+  background-color: #f9f9f9;
 }
 
-.card {
-  padding: 2em;
+.quienes-somos h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #333;
 }
 
-.read-the-docs {
-  color: #888;
+.quienes-somos p {
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.6;
 }
 
-/* Navbar styles */
-.navbar {
-  position: relative;
+/* Por qué elegirnos */
+.porque-elegirnos {
+  padding: 40px 20px;
+  background-color: #ffffff;
 }
 
-.menu {
-  display: flex;
+.porque-elegirnos h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.porque-elegirnos ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.porque-elegirnos li {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+/* Ubicación en el mapa */
+.ubicacion {
+  padding: 40px 20px;
+  background-color: #f9f9f9;
+}
+
+.ubicacion h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.ubicacion p {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.ubicacion iframe {
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Extensión de Conexa */
+.extension {
+  padding: 40px 20px;
+  background-color: #ffffff;
+}
+
+.extension h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.extension p {
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+.extension h3 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.extension iframe {
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}/* Estilos generales */
+.App {
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Hero Section */
+.hero {
+  background-color: #007bff;
+  color: white;
+  padding: 60px 20px;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 1.2rem;
+}
+
+/* Quiénes somos */
+.quienes-somos {
+  padding: 40px 20px;
+  background-color: #f9f9f9;
+}
+
+.quienes-somos h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.quienes-somos p {
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Por qué elegirnos */
+.porque-elegirnos {
+  padding: 40px 20px;
+  background-color: #ffffff;
+}
+
+.porque-elegirnos h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.porque-elegirnos ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.porque-elegirnos li {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+/* Ventajas de elegir CONEXA */
+.ventajas {
+  padding: 40px 20px;
+  background-color: #f9f9f9;
+}
+
+.ventajas h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.ventajas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 20px;
-  align-items: center;
 }
 
-.menu a {
-  text-decoration: none;
-  color: black; /* Cambiamos el color de las opciones a negro */
+.ventaja {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: left;
 }
 
-/* Services menu styles */
-.services-menu {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background-color: white;
-  border: 1px solid #ccc;
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  opacity: 0;
-  transform: translateY(-10px);
-  visibility: hidden;
-  transition: opacity 0.3s ease, transform 0.3s ease;
+.ventaja h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #007bff;
 }
 
-.services-menu.open {
-  opacity: 1;
-  transform: translateY(0);
-  visibility: visible;
+.ventaja p {
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.6;
 }
 
-.services-menu a {
-  color: black; /* Cambiamos el color de las opciones a negro */
-  text-decoration: none;
-  padding: 5px 10px;
+/* Ubicación en el mapa */
+.ubicacion {
+  padding: 40px 20px;
+  background-color: #ffffff;
 }
 
-.services-menu a:hover {
-  background-color: #f0f0f0;
+.ubicacion h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.ubicacion p {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.ubicacion iframe {
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Extensión de Conexa */
+.extension {
+  padding: 40px 20px;
+  background-color: #f9f9f9;
+}
+
+.extension h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.extension p {
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+.extension iframe {
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
 }
