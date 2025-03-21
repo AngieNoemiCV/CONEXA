@@ -16,30 +16,27 @@ const Paquetes = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    // Validar que el teléfono tenga exactamente 10 dígitos
+  
+    // Validaciones previas (teléfono, correo, campos vacíos)
     if (telefono.length !== 10 || !/^\d+$/.test(telefono)) {
       setErrorTelefono('El teléfono debe tener exactamente 10 dígitos.');
       return;
     } else {
-      setErrorTelefono(''); // Limpiar el mensaje de error si es válido
+      setErrorTelefono('');
     }
-
-    // Validar que el correo electrónico sea válido
-    const regexCorreo = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Expresión regular para validar correos
+  
     if (!regexCorreo.test(correo)) {
       setErrorCorreo('Por favor, ingresa un correo electrónico válido.');
       return;
     } else {
-      setErrorCorreo(''); // Limpiar el mensaje de error si es válido
+      setErrorCorreo('');
     }
-
-    // Validar que todos los campos estén llenos
+  
     if (!nombre || !correo || !telefono || !paqueteSeleccionado) {
       setMensaje('Por favor, completa todos los campos.');
       return;
     }
-
+  
     const datosCliente = {
       nombre,
       correo,
@@ -47,16 +44,16 @@ const Paquetes = () => {
       paquete: paqueteSeleccionado,
       fecha: new Date().toLocaleString(),
     };
-
+  
     try {
       // Guardar los datos en Firestore
       await addDoc(collection(db, 'solicitudes de paquetes'), datosCliente);
-      setMensaje('¡Gracias! Nos pondremos en contacto contigo pronto.');
+      alert('¡Solicitud enviada con éxito! Estaremos en contacto contigo lo más pronto posible.'); // Mostrar alerta
       setNombre('');
       setCorreo('');
       setTelefono('');
       setPaqueteSeleccionado('');
-      setMostrarFormulario(false); // Ocultar el formulario después de enviar
+      setMostrarFormulario(false);
     } catch (error) {
       setMensaje('Hubo un error al enviar tu solicitud. Inténtalo de nuevo.');
     }
@@ -84,36 +81,39 @@ const Paquetes = () => {
         <h2>Consejos para elegir el mejor paquete según tus necesidades</h2>
         <ul>
           <li>
-            <strong>Si solo navegas por internet, revisas redes sociales y ves videos ocasionales →</strong> 5 MG
+            <strong>Si solo navegas por internet, revisas redes sociales y ves videos ocasionales →</strong> 5 Mbps
           </li>
           <li>
-            <strong>Si haces videollamadas, usas Netflix o YouTube en HD y conectas un par de dispositivos →</strong> 10 MG
+            <strong>Si haces videollamadas, usas Netflix o YouTube en HD y conectas un par de dispositivos →</strong> 10 Mbps
           </li>
           <li>
-            <strong>Si descargas archivos frecuentemente, juegas en línea o haces streaming en Full HD →</strong> 15 MG
+            <strong>Si descargas archivos frecuentemente, juegas en línea o haces streaming en Full HD →</strong> 15 Mbps
           </li>
           <li>
-            <strong>Si tienes varios dispositivos conectados al mismo tiempo, haces teletrabajo o quieres calidad en 4K →</strong> 20 MG
+            <strong>Si tienes varios dispositivos conectados al mismo tiempo, haces teletrabajo o quieres calidad en 4K →</strong> 20 Mbps
           </li>
         </ul>
       </div>
 
       {/* Lista de paquetes */}
       <h1>Paquetes Disponibles</h1>
+      <p className="mensaje-precios">
+        *** Precios sugeridos por el proveedor, exclusivo para usuarios y clientes domésticos. El precio puede variar dependiendo de la instalación y el material utilizado. ***
+      </p>
       <div className="paquete">
-        <p>🔹 Paquete - 5 MG - $350/mes</p>
+        <p>🔹 Paquete - 5 Mbps - $350/mes</p>
         <button onClick={() => handleContratarClick('5 MG - $350/mes')}>Contratar</button>
       </div>
       <div className="paquete">
-        <p>🔹 Paquete - 10 MG - $580/mes</p>
+        <p>🔹 Paquete - 10 Mbps - $580/mes</p>
         <button onClick={() => handleContratarClick('10 MG - $580/mes')}>Contratar</button>
       </div>
       <div className="paquete">
-        <p>🔹 Paquete - 15 MG - $730/mes</p>
+        <p>🔹 Paquete - 15 Mbps - $730/mes</p>
         <button onClick={() => handleContratarClick('15 MG - $730/mes')}>Contratar</button>
       </div>
       <div className="paquete">
-        <p>🔹 Paquete - 20 MG - $1044/mes</p>
+        <p>🔹 Paquete - 20 Mbps - $1044/mes</p>
         <button onClick={() => handleContratarClick('20 MG - $1044/mes')}>Contratar</button>
       </div>
 
@@ -151,7 +151,7 @@ const Paquetes = () => {
             />
             {errorTelefono && <p className="error-message">{errorTelefono}</p>}
           </div>
-          <button type="submit">Enviar solicitud</button>
+          <button type="submit" className="btn-enviar-solicitud">Enviar solicitud</button>
         </form>
       )}
 

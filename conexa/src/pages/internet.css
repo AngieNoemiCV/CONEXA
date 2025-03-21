@@ -1,166 +1,227 @@
 /* Estilos generales */
 .service-page {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-    font-family: 'Arial', sans-serif;
-    color: #333;
-    line-height: 1.6;
-    background-color: #f5f5f5;
-  }
-  
-  h1, h2 {
-    color: #2c3e50;
-    margin-bottom: 20px;
-  }
-  
+  width: 100%; /* Ocupa todo el ancho disponible */
+  padding: 20px;
+  font-family: 'Arial', sans-serif;
+  color: #333;
+  line-height: 1.6;
+  background-color: #f5f5f5;
+}
+
+h1,
+h2 {
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-top: 0;
+  color: #3498db;
+}
+
+h2 {
+  font-size: 2rem;
+  padding-bottom: 10px;
+  margin-top: 40px;
+  color: #3498db;
+}
+
+p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  color: #555;
+  text-align: center;
+}
+
+ul {
+  list-style-type: disc;
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+
+li {
+  margin-bottom: 10px;
+  color: #555;
+}
+
+dl {
+  margin-bottom: 20px;
+}
+
+dt {
+  font-weight: bold;
+  color: #3498db;
+  margin-top: 15px;
+  cursor: pointer;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+dt:hover {
+  background-color: #e0f7fa;
+}
+
+dd {
+  margin-left: 20px;
+  margin-bottom: 15px;
+  color: #555;
+  padding: 10px;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+
+/* Estilos para secciones */
+section {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Estilos para destacar información importante */
+strong {
+  color: #e74c3c;
+}
+
+/* Estilos para el mensaje de Internet Híbrido */
+section h2 {
+  color: #8f00ff;
+}
+
+section p {
+  font-size: 1.2rem;
+  color: #34495e;
+}
+
+/* Tarjetas de servicios */
+.service-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.service-card {
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  width: calc(33.333% - 40px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.service-card h3 {
+  font-size: 1.5rem;
+  color: #3498db;
+  margin-bottom: 15px;
+}
+
+.service-card p {
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Estilos para las imágenes en las tarjetas */
+.service-image {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  display: block;
+  margin: 20px auto 0;
+  border-radius: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
   h1 {
-    font-size: 2.5rem;
-    text-align: center;
-    margin-top: 0;
-    color: #3498db;
-  }
-  
-  h2 {
     font-size: 2rem;
-    padding-bottom: 10px;
-    margin-top: 40px;
-    color: #3498db;
   }
-  
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
   p {
-    font-size: 1.1rem;
-    margin-bottom: 20px;
-    color: #555;
-  }
-  
-  ul {
-    list-style-type: disc;
-    margin-left: 20px;
-    margin-bottom: 20px;
-  }
-  
-  li {
-    margin-bottom: 10px;
-    color: #555;
-  }
-  
-  dl {
-    margin-bottom: 20px;
-  }
-  
-  dt {
-    font-weight: bold;
-    color: #3498db;
-    margin-top: 15px;
-  }
-  
-  dd {
-    margin-left: 20px;
-    margin-bottom: 15px;
-    color: #555;
-  }
-  
-  /* Estilos para secciones */
-  section {
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    margin-bottom: 30px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  section:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-  }
-  
-  /* Estilos para destacar información importante */
-  strong {
-    color: #e74c3c;
-  }
-  
-  /* Estilos para el mensaje de Internet Híbrido */
-  section h2 {
-    color: #27ae60;
-  }
-  
-  section p {
-    font-size: 1.2rem;
-    color: #34495e;
-  }
-  
-  /* Estilos para preguntas frecuentes */
-  section dl dt {
-    font-size: 1.2rem;
-    color: #3498db;
-  }
-  
-  section dl dd {
     font-size: 1rem;
-    color: #555;
   }
-  
-  /* Tarjetas de servicios */
-  .service-cards {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
+
+  section {
+    padding: 15px;
   }
-  
+
   .service-card {
-    background-color: white;
-    border-radius: 10px;
-    padding: 20px;
-    width: calc(33.333% - 40px);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: calc(50% - 20px);
+  }
+}
+
+@media (max-width: 480px) {
+  .service-card {
+    width: 100%;
+  }
+}
+
+/* Estilos para el contenedor flexible */
+.flex-container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+}
+
+/* Estilos para la imagen de la topología */
+.topologia-image {
+  width: 600px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos responsivos para el contenedor flexible */
+@media (max-width: 768px) {
+  .flex-container {
+    flex-direction: column;
     text-align: center;
   }
-  
-  .service-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+
+  .topologia-image {
+    width: 150px;
   }
-  
-  .service-card h3 {
-    font-size: 1.5rem;
-    color: #3498db;
-    margin-bottom: 15px;
+}
+
+/* Estilos para la imagen de Internet Híbrido */
+.hybrid-image {
+  width: 700px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos responsivos para el contenedor flexible */
+@media (max-width: 768px) {
+  .flex-container {
+    flex-direction: column;
+    text-align: center;
   }
-  
-  .service-card p {
-    font-size: 1rem;
-    color: #555;
+
+  .hybrid-image {
+    width: 150px;
   }
-  
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    h1 {
-      font-size: 2rem;
-    }
-  
-    h2 {
-      font-size: 1.5rem;
-    }
-  
-    p {
-      font-size: 1rem;
-    }
-  
-    section {
-      padding: 15px;
-    }
-  
-    .service-card {
-      width: calc(50% - 20px);
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .service-card {
-      width: 100%;
-    }
-  }
+}

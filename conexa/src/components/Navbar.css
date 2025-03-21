@@ -1,45 +1,107 @@
-/* Estilos básicos para el menú de servicios */
+/* Estilos básicos para el navbar */
 nav {
-    display: flex;
-    gap: 20px;
-    padding: 10px;
-    position: relative; /* Asegura que el menú desplegable esté posicionado correctamente */
-    z-index: 100; /* Asegura que el navbar esté por encima de otros elementos */
+  display: flex;
+  align-items: center; /* Centra verticalmente los elementos */
+  gap: 20px;
+  padding: 10px;
+  position: relative; /* Asegura que el menú desplegable esté posicionado correctamente */
+  z-index: 100; /* Asegura que el navbar esté por encima de otros elementos */
+  background-color: #007bff; /* Color de fondo del navbar */
+  color: white; /* Color del texto */
+}
+
+/* Contenedor del logo */
+.logo-container {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+/* Estilos para el logo */
+.logo {
+  width: 160px; /* Ancho más pequeño */
+  height:60px; /* Altura más pequeña (ajusta según sea necesario) */
+  margin-top: -20px;
+}
+
+/* Estilos para los enlaces del navbar */
+nav a {
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+  font-size: 1.1rem;
+}
+
+nav a:hover {
+  background-color: rgba(255, 255, 255, 0.1); /* Efecto hover */
+  border-radius: 5px;
+}
+
+/* Estilos para el menú de servicios */
+.services-container {
+  position: relative;
+}
+
+.services-menu {
+  position: absolute;
+  top: 100%; /* Coloca el menú debajo del enlace "Servicios" */
+  left: 0;
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  opacity: 0; /* Inicialmente invisible */
+  visibility: hidden; /* Inicialmente oculto */
+  transform: translateY(-10px); /* Efecto de desplazamiento */
+  transition: opacity 0.3s ease, transform 0.3s ease; /* Transición suave */
+  z-index: 1000; /* Asegura que el menú esté por encima de otros elementos */
+}
+
+.services-menu.open {
+  opacity: 1; /* Visible cuando está abierto */
+  visibility: visible; /* Visible cuando está abierto */
+  transform: translateY(0); /* Sin desplazamiento cuando está abierto */
+}
+
+.services-menu a {
+  color: black;
+  text-decoration: none;
+  padding: 5px 10px;
+}
+
+.services-menu a:hover {
+  background-color: #f0f0f0;
+}
+
+/* Ajustes responsivos para pantallas medianas (1024px o menos) */
+@media (max-width: 1024px) {
+  .logo {
+    width: 120px; /* Tamaño más pequeño para pantallas medianas */
   }
-  
-  .services-container {
-    position: relative;
+}
+
+/* Ajustes responsivos para tablets (768px o menos) */
+@media (max-width: 768px) {
+  .logo {
+    width: 100px; /* Tamaño más pequeño para tablets */
   }
-  
-  .services-menu {
-    position: absolute;
-    top: 100%; /* Coloca el menú debajo del enlace "Servicios" */
-    left: 0;
-    background-color: white;
-    border: 1px solid #ccc;
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    opacity: 0; /* Inicialmente invisible */
-    visibility: hidden; /* Inicialmente oculto */
-    transform: translateY(-10px); /* Efecto de desplazamiento */
-    transition: opacity 0.3s ease, transform 0.3s ease; /* Transición suave */
-    z-index: 1000; /* Asegura que el menú esté por encima de otros elementos */
+
+  nav {
+    flex-direction: column; /* Apila los elementos verticalmente */
+    align-items: flex-start; /* Alinea los elementos a la izquierda */
   }
-  
-  .services-menu.open {
-    opacity: 1; /* Visible cuando está abierto */
-    visibility: visible; /* Visible cuando está abierto */
-    transform: translateY(0); /* Sin desplazamiento cuando está abierto */
+
+  .logo-container {
+    margin-bottom: 10px; /* Espacio debajo del logo */
   }
-  
-  .services-menu a {
-    color: black;
-    text-decoration: none;
-    padding: 5px 10px;
+}
+
+/* Ajustes responsivos para móviles (480px o menos) */
+@media (max-width: 480px) {
+  .logo {
+    width: 80px; /* Tamaño más pequeño para móviles */
   }
-  
-  .services-menu a:hover {
-    background-color: #f0f0f0;
-  }
+}

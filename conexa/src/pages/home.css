@@ -10,133 +10,29 @@
   padding: 20px;
 }
 
+.container h1 {
+  color: #f9f9f9;
+}
+
+.container p {
+  color: #f9f9f9;
+}
+
 /* Hero Section */
 .hero {
-  background-color: #007bff;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Colimauno.jpg/270px-Colimauno.jpg');
   color: white;
   padding: 60px 20px;
-}
-
-.hero h1 {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-}
-
-.hero p {
-  font-size: 1.2rem;
-}
-
-/* Quiénes somos */
-.quienes-somos {
-  padding: 40px 20px;
-  background-color: #f9f9f9;
-}
-
-.quienes-somos h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-  color: #333;
-}
-
-.quienes-somos p {
-  font-size: 1.1rem;
-  color: #555;
-  line-height: 1.6;
-}
-
-/* Por qué elegirnos */
-.porque-elegirnos {
-  padding: 40px 20px;
-  background-color: #ffffff;
-}
-
-.porque-elegirnos h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-  color: #333;
-}
-
-.porque-elegirnos ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-.porque-elegirnos li {
-  font-size: 1.1rem;
-  color: #555;
-  margin-bottom: 10px;
-}
-
-/* Ubicación en el mapa */
-.ubicacion {
-  padding: 40px 20px;
-  background-color: #f9f9f9;
-}
-
-.ubicacion h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-  color: #333;
-}
-
-.ubicacion p {
-  font-size: 1.1rem;
-  color: #555;
-  margin-bottom: 20px;
-}
-
-.ubicacion iframe {
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* Extensión de Conexa */
-.extension {
-  padding: 40px 20px;
-  background-color: #ffffff;
-}
-
-.extension h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-  color: #333;
-}
-
-.extension p {
-  font-size: 1.1rem;
-  color: #555;
-  line-height: 1.6;
-}
-
-.extension h3 {
-  font-size: 1.5rem;
-  margin-bottom: 20px;
-  color: #333;
-}
-
-.extension iframe {
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin-top: 20px;
-}/* Estilos generales */
-.App {
-  font-family: Arial, sans-serif;
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
 }
 
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-/* Hero Section */
-.hero {
-  background-color: #007bff;
-  color: white;
-  padding: 60px 20px;
-}
-
 .hero h1 {
   font-size: 2.5rem;
   margin-bottom: 20px;
@@ -153,13 +49,41 @@
 }
 
 .quienes-somos h2 {
-  font-size: 2rem;
+  font-size: 2.5rem; /* Tamaño de fuente más grande para el título */
   margin-bottom: 20px;
   color: #333;
+  text-align: center;
 }
 
-.quienes-somos p {
-  font-size: 1.1rem;
+.quienes-somos-content {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.quienes-somos .imagen-container {
+  flex: 1;
+  width: 300px; /* Ancho más pequeño */
+  height: 250px; /* Altura más pequeña */
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.quienes-somos .imagen-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.quienes-somos .texto-container {
+  flex: 1;
+  max-width: 60%; /* Más espacio para el texto */
+}
+
+.quienes-somos .texto-container p {
+  font-size: 1.3rem; /* Tamaño de fuente más grande para el texto */
   color: #555;
   line-height: 1.6;
 }
@@ -168,12 +92,44 @@
 .porque-elegirnos {
   padding: 40px 20px;
   background-color: #ffffff;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .porque-elegirnos h2 {
   font-size: 2rem;
   margin-bottom: 20px;
   color: #333;
+  text-align: center;
+}
+
+.porque-elegirnos-content {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.imagen-container {
+  flex: 1;
+  width: 500px;
+  height: 400px;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.imagen-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.texto-container {
+  flex: 1;
+  max-width: 50%;
 }
 
 .porque-elegirnos ul {
@@ -182,9 +138,17 @@
 }
 
 .porque-elegirnos li {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   color: #555;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+  cursor: pointer;
+}
+
+.porque-elegirnos li.active {
+  opacity: 1;
+  font-weight: bold;
 }
 
 /* Ventajas de elegir CONEXA */
@@ -211,6 +175,14 @@
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: left;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.ventaja:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .ventaja h3 {
@@ -223,6 +195,37 @@
   font-size: 1.1rem;
   color: #555;
   line-height: 1.6;
+  margin: 0;
+}
+
+.ventaja-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+.ventaja.expanded .ventaja-content {
+  max-height: 500px;
+  padding-top: 10px;
+}
+
+.image-container {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+  text-align: center;
+}
+
+.image-container.visible {
+  max-height: 200px;
+  padding-top: 10px;
+}
+
+.image-container img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Ubicación en el mapa */
@@ -270,4 +273,80 @@
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   margin-top: 20px;
+}
+
+/* Estilos para el logo */
+.logo {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 150px;
+  height: auto;
+  z-index: 10;
+}
+
+/* Ajustes responsivos para pantallas medianas (1024px o menos) */
+@media (max-width: 1024px) {
+  .logo {
+    width: 150px;
+  }
+
+  .imagen-container {
+    width: 450px;
+    height: 360px;
+  }
+}
+
+/* Ajustes responsivos para tablets (768px o menos) */
+@media (max-width: 768px) {
+  .logo {
+    width: 120px;
+    top: 15px;
+    left: 15px;
+  }
+
+  .quienes-somos-content,
+  .porque-elegirnos-content {
+    flex-direction: column;
+  }
+
+  .quienes-somos .imagen-container,
+  .quienes-somos .texto-container,
+  .imagen-container,
+  .texto-container {
+    max-width: 100%;
+  }
+
+  .quienes-somos .imagen-container,
+  .imagen-container {
+    width: 100%;
+    height: 250px; /* Altura más pequeña para móviles */
+  }
+
+  .quienes-somos .imagen-container img,
+  .imagen-container img {
+    margin-bottom: 20px;
+  }
+}
+
+/* Ajustes responsivos para móviles (480px o menos) */
+@media (max-width: 480px) {
+  .logo {
+    width: 80px;
+    top: 10px;
+    left: 10px;
+  }
+
+  .quienes-somos .imagen-container,
+  .imagen-container {
+    height: 200px; /* Altura aún más pequeña para móviles pequeños */
+  }
+
+  .quienes-somos h2 {
+    font-size: 2rem; /* Tamaño de fuente más pequeño para móviles */
+  }
+
+  .quienes-somos .texto-container p {
+    font-size: 1.1rem; /* Tamaño de fuente más pequeño para móviles */
+  }
 }

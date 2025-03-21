@@ -75,7 +75,7 @@ li {
 }
 
 .consejos h2 {
-  color: #27ae60;
+  color: #3498db;
 }
 
 .consejos ul {
@@ -89,7 +89,7 @@ li {
 }
 
 .consejos strong {
-  color: #e74c3c;
+  color: #275250;
 }
 
 /* Estilos para los paquetes */
@@ -162,4 +162,39 @@ li {
   font-size: 1.2rem;
   color: #27ae60;
   margin-top: 20px;
+}
+
+.mensaje-precios {
+  font-size: 0.9rem; /* Tamaño de fuente más pequeño */
+  color: #555; /* Color gris oscuro */
+  font-style: italic; /* Texto en cursiva */
+  text-align: center; /* Centrar el texto */
+  margin: 10px 0; /* Espaciado superior e inferior */
+}
+
+/* Estilos para el botón de enviar solicitud */
+.btn-enviar-solicitud {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  display: block;
+  margin: 20px auto 0;
+}
+
+.btn-enviar-solicitud:hover {
+  background-color: #2980b9;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn-enviar-solicitud:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }

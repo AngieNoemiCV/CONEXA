@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css'; // Asegúrate de que este archivo esté correctamente vinculado
+import logo from './logo.png'; // Importa la imagen
 
 const Navbar = () => {
   const [isServicesOpen, setIsServicesOpen] = useState(false);
@@ -26,6 +27,16 @@ const Navbar = () => {
 
   return (
     <nav>
+      {/* Logo en el lado izquierdo */}
+      <div className="logo-container">
+        <img
+          src={logo}
+          alt="Logo de CONEXA"
+          className="logo"
+        />
+      </div>
+
+      {/* Enlaces del navbar */}
       <Link to="/">Inicio</Link>
       <div className="services-container">
         {/* Enlace para abrir/cerrar el menú */}
@@ -34,7 +45,7 @@ const Navbar = () => {
         </a>
         {/* Menú desplegable */}
         <div ref={servicesMenuRef} className={`services-menu ${isServicesOpen ? 'open' : ''}`}>
-        <Link to="/internet" onClick={() => setIsServicesOpen(false)}>
+          <Link to="/internet" onClick={() => setIsServicesOpen(false)}>
             Internet
           </Link>
           <Link to="/mantenimiento" onClick={() => setIsServicesOpen(false)}>
