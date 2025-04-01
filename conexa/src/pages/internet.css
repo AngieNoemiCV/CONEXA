@@ -1,155 +1,188 @@
-/* Estilos generales */
-.service-page {
-  width: 100%; /* Ocupa todo el ancho disponible */
-  padding: 20px;
-  font-family: 'Arial', sans-serif;
-  color: #333;
-  line-height: 1.6;
-  background-color: #f5f5f5;
+/* Estilos generales para Conexa */
+:root {
+  --cian: #00b4d8;
+  --morado: #6a3093;
+  --arena: #f0e6d1;
+  --arena-oscuro: #e0d6c1;
+  --texto-oscuro: #2d2d2d;
+  --blanco: #ffffff;
+  --borde: rgba(0, 0, 0, 0.1);
 }
 
-h1,
-h2 {
-  color: #2c3e50;
+.service-page {
+  width: 100%;
+  padding: 20px;
+  font-family: 'Segoe UI', Roboto, sans-serif;
+  color: var(--texto-oscuro);
+  line-height: 1.6;
+  background: linear-gradient(135deg, var(--arena) 0%, var(--arena-claro) 100%);
+}
+
+/* Encabezados */
+h1, h2 {
+  color: var(--morado);
   margin-bottom: 20px;
+  font-weight: 600;
 }
 
 h1 {
   font-size: 2.5rem;
   text-align: center;
   margin-top: 0;
-  color: #3498db;
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+h1::after {
+  content: '';
+  position: absolute;
+  width: 60%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--cian), var(--morado));
+  bottom: -10px;
+  left: 20%;
+  border-radius: 2px;
 }
 
 h2 {
   font-size: 2rem;
   padding-bottom: 10px;
   margin-top: 40px;
-  color: #3498db;
+  border-bottom: 2px solid var(--cian);
 }
 
+/* Textos y párrafos */
 p {
   font-size: 1.1rem;
   margin-bottom: 20px;
-  color: #555;
+  color: var(--texto-oscuro);
   text-align: center;
 }
 
+/* Listas */
 ul {
-  list-style-type: disc;
-  margin-left: 20px;
+  list-style-type: none;
+  padding-left: 0;
   margin-bottom: 20px;
 }
 
 li {
-  margin-bottom: 10px;
-  color: #555;
-}
-
-dl {
-  margin-bottom: 20px;
-}
-
-dt {
-  font-weight: bold;
-  color: #3498db;
-  margin-top: 15px;
-  cursor: pointer;
-  padding: 10px;
-  background-color: #f9f9f9;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
-}
-
-dt:hover {
-  background-color: #e0f7fa;
-}
-
-dd {
-  margin-left: 20px;
   margin-bottom: 15px;
-  color: #555;
-  padding: 10px;
-  background-color: #f1f1f1;
-  border-radius: 5px;
-  margin-top: 5px;
+  padding-left: 25px;
+  position: relative;
+  color: var(--texto-oscuro);
 }
 
-/* Estilos para secciones */
+li::before {
+  content: "•";
+  color: var(--cian);
+  font-size: 1.5em;
+  position: absolute;
+  left: 0;
+  top: -3px;
+}
+
+/* Secciones */
 section {
-  background-color: white;
-  padding: 20px;
-  border-radius: 10px;
+  background-color: var(--arena-oscuro);
+  padding: 30px;
+  border-radius: 15px;
   margin-bottom: 30px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  border: 1px solid var(--borde);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 section:hover {
   transform: translateY(-5px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-}
-
-/* Estilos para destacar información importante */
-strong {
-  color: #e74c3c;
-}
-
-/* Estilos para el mensaje de Internet Híbrido */
-section h2 {
-  color: #8f00ff;
-}
-
-section p {
-  font-size: 1.2rem;
-  color: #34495e;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
 }
 
 /* Tarjetas de servicios */
 .service-cards {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
   justify-content: center;
 }
 
 .service-card {
-  background-color: white;
-  border-radius: 10px;
-  padding: 20px;
-  width: calc(33.333% - 40px);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: var(--arena);
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
   text-align: center;
+  border-top: 5px solid var(--cian);
+  border: 1px solid var(--borde);
 }
 
 .service-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
 }
 
 .service-card h3 {
   font-size: 1.5rem;
-  color: #3498db;
+  color: var(--morado);
   margin-bottom: 15px;
 }
 
 .service-card p {
   font-size: 1rem;
-  color: #555;
+  color: var(--texto-oscuro);
+  text-align: left;
 }
 
-/* Estilos para las imágenes en las tarjetas */
+/* Imágenes */
 .service-image {
   width: 100%;
   max-width: 200px;
   height: auto;
   display: block;
-  margin: 20px auto 0;
+  margin: 20px auto;
   border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--borde);
+}
+
+/* Contenedor flexible */
+.flex-container {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  width: 100%;
+}
+
+.topologia-image, 
+.hybrid-image {
+  flex: 1;
+  max-width: 600px;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--borde);
+}
+
+/* Elementos destacados */
+strong {
+  color: var(--morado);
+  font-weight: 600;
 }
 
 /* Responsive Design */
+@media (max-width: 1024px) {
+  .flex-container {
+    gap: 30px;
+  }
+  
+  .topologia-image,
+  .hybrid-image {
+    max-width: 400px;
+  }
+}
+
 @media (max-width: 768px) {
   h1 {
     font-size: 2rem;
@@ -159,69 +192,80 @@ section p {
     font-size: 1.5rem;
   }
 
-  p {
-    font-size: 1rem;
-  }
-
   section {
-    padding: 15px;
+    padding: 25px;
   }
 
-  .service-card {
-    width: calc(50% - 20px);
+  .flex-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .topologia-image,
+  .hybrid-image {
+    max-width: 100%;
   }
 }
 
 @media (max-width: 480px) {
-  .service-card {
-    width: 100%;
+  .service-page {
+    padding: 15px;
+  }
+  
+  h1 {
+    font-size: 1.8rem;
+  }
+  
+  section {
+    padding: 20px 15px;
+  }
+  
+  .service-cards {
+    grid-template-columns: 1fr;
   }
 }
 
-/* Estilos para el contenedor flexible */
-.flex-container {
+/* Estilo para el footer inspirado en tu imagen */
+.conexa-footer {
+  background: linear-gradient(135deg, var(--morado) 0%, #4a1d6b 100%);
+  color: white;
+  padding: 40px 20px;
+  text-align: center;
+  border-radius: 15px;
+  margin-top: 50px;
+}
+
+.conexa-footer h2 {
+  color: white;
+  border-bottom: 2px solid var(--cian);
+}
+
+.conexa-footer p {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.social-links {
   display: flex;
-  align-items: center;
+  justify-content: center;
   gap: 20px;
-  width: 100%;
+  margin: 20px 0;
 }
 
-/* Estilos para la imagen de la topología */
-.topologia-image {
-  width: 600px;
-  height: auto;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+.social-links a {
+  color: white;
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
 }
 
-/* Estilos responsivos para el contenedor flexible */
-@media (max-width: 768px) {
-  .flex-container {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .topologia-image {
-    width: 150px;
-  }
+.social-links a:hover {
+  color: var(--cian);
 }
 
-/* Estilos para la imagen de Internet Híbrido */
-.hybrid-image {
-  width: 700px;
-  height: auto;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+.contact-info {
+  margin-top: 30px;
 }
 
-/* Estilos responsivos para el contenedor flexible */
-@media (max-width: 768px) {
-  .flex-container {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .hybrid-image {
-    width: 150px;
-  }
+.contact-info p {
+  margin-bottom: 10px;
 }

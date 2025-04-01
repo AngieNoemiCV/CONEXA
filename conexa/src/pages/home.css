@@ -1,352 +1,335 @@
+/* home.css - Versión mejorada */
+
+:root {
+  --cian: #00b4d8;
+  --morado: #6a3093;
+  --arena: #d8b48c;
+  --arena-claro: #f5f0e6;
+  --gris-oscuro: #333333;
+  --blanco: #ffffff;
+}
+
+
 /* Estilos generales */
 .App {
-  font-family: Arial, sans-serif;
+  font-family: 'Segoe UI', Roboto, sans-serif;
   text-align: center;
+  color: var(--gris-oscuro);
+  background-color: var(--arena-claro);
+  line-height: 1.6;
 }
 
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 40px 20px;
 }
 
-.container h1 {
-  color: #f9f9f9;
+h1, h2, h3 {
+  font-weight: 600;
 }
 
-.container p {
-  color: #f9f9f9;
-}
 
 /* Hero Section */
 .hero {
   position: relative;
+  background: 
+              url('https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Colimauno.jpg/270px-Colimauno.jpg');
   background-size: cover;
   background-position: center;
-  background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Colimauno.jpg/270px-Colimauno.jpg');
-  color: white;
-  padding: 60px 20px;
-  min-height: 300px;
+  color: var(--arena-claro);
+  padding: 120px 20px;
+  min-height: 400px;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
+  clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+  margin-bottom: 40px;
 }
 
 .hero h1 {
-  font-size: 2.5rem;
+  font-size: 3rem;
   margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  background-color: rgba(255, 255, 255, 0.5); /* Blanco con 50% opacidad */
+  /* El texto mantendrá opacidad 1 (completamente opaco) */
+  border-radius: 15px; /* Ajusta este valor a tu gusto */
 }
 
 .hero p {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
+  max-width: 800px;
+  margin: 0 auto;
+  color: var(--blanco)
+}
+
+/* Secciones comunes */
+section {
+  padding: 80px 0;
+}
+
+section:nth-child(even) {
+  background-color: var(--arena-claro);
+}
+
+section:nth-child(odd):not(.hero) {
+  background-color: var(--arena-claro);
+}
+
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: 50px;
+  color: var(--morado);
+  position: relative;
+  display: inline-block;
+}
+
+.section-title:after {
+  content: '';
+  position: absolute;
+  width: 60%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--cian), var(--morado));
+  bottom: -15px;
+  left: 20%;
+  border-radius: 2px;
 }
 
 /* Quiénes somos */
-.quienes-somos {
-  padding: 40px 20px;
-  background-color: #f9f9f9;
-}
-
-.quienes-somos h2 {
-  font-size: 2.5rem; /* Tamaño de fuente más grande para el título */
-  margin-bottom: 20px;
-  color: #333;
-  text-align: center;
-}
-
 .quienes-somos-content {
   display: flex;
   align-items: center;
-  gap: 40px;
+  gap: 60px;
 }
 
 .quienes-somos .imagen-container {
   flex: 1;
-  width: 300px; /* Ancho más pequeño */
-  height: 250px; /* Altura más pequeña */
+  border-radius: 15px;
   overflow: hidden;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.quienes-somos .imagen-container:hover {
+  transform: scale(1.02);
 }
 
 .quienes-somos .imagen-container img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 10px;
 }
 
 .quienes-somos .texto-container {
   flex: 1;
-  max-width: 60%; /* Más espacio para el texto */
+  text-align: left;
 }
 
 .quienes-somos .texto-container p {
-  font-size: 1.3rem; /* Tamaño de fuente más grande para el texto */
-  color: #555;
-  line-height: 1.6;
+  font-size: 1.2rem;
+  color: var(--gris-oscuro);
+  line-height: 1.8;
 }
 
 /* Por qué elegirnos */
-.porque-elegirnos {
-  padding: 40px 20px;
-  background-color: #ffffff;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.porque-elegirnos h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-  color: #333;
-  text-align: center;
-}
-
 .porque-elegirnos-content {
   display: flex;
   align-items: center;
-  gap: 40px;
+  gap: 60px;
 }
 
 .imagen-container {
   flex: 1;
-  width: 500px;
-  height: 400px;
+  border-radius: 15px;
   overflow: hidden;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
 }
 
 .imagen-container img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 10px;
+  transition: transform 0.5s ease;
+}
+
+.imagen-container:hover img {
+  transform: scale(1.05);
 }
 
 .texto-container {
   flex: 1;
-  max-width: 50%;
+  text-align: left;
 }
 
 .porque-elegirnos ul {
-  list-style-type: none;
+  list-style: none;
   padding: 0;
 }
 
 .porque-elegirnos li {
   font-size: 1.2rem;
-  color: #555;
-  margin-bottom: 20px;
-  opacity: 0.5;
-  transition: opacity 0.3s ease;
+  padding: 20px;
+  margin-bottom: 15px;
+  background-color: var( --arena-claro);
+  border-left: 4px solid var(--arena);
+  transition: all 0.3s ease;
   cursor: pointer;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.porque-elegirnos li:hover {
+  transform: translateX(10px);
+  border-left: 4px solid var(--cian);
 }
 
 .porque-elegirnos li.active {
-  opacity: 1;
-  font-weight: bold;
+  background-color: var(--morado);
+  color: var(--blanco);
+  border-left: 4px solid var(--cian);
 }
 
-/* Ventajas de elegir CONEXA */
-.ventajas {
-  padding: 40px 20px;
-  background-color: #f9f9f9;
-}
-
-.ventajas h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-  color: #333;
-}
-
+/* Ventajas */
 .ventajas-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 30px;
 }
 
 .ventaja {
-  background-color: #ffffff;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  text-align: left;
-  cursor: pointer;
+  background: var(--blanco);
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
   transition: all 0.3s ease;
-  position: relative;
+  text-align: left;
+  border-top: 5px solid var(--cian);
 }
 
 .ventaja:hover {
   transform: translateY(-10px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
 }
 
 .ventaja h3 {
   font-size: 1.5rem;
-  margin-bottom: 10px;
-  color: #007bff;
+  color: var(--morado);
+  margin-bottom: 15px;
 }
 
 .ventaja p {
-  font-size: 1.1rem;
-  color: #555;
-  line-height: 1.6;
-  margin: 0;
+  color: var(--gris-oscuro);
+  margin-bottom: 20px;
 }
 
 .ventaja-content {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.3s ease, padding 0.3s ease;
+  transition: max-height 0.5s ease;
 }
 
 .ventaja.expanded .ventaja-content {
   max-height: 500px;
-  padding-top: 10px;
 }
 
 .image-container {
-  max-height: 0;
+  margin-top: 20px;
+  border-radius: 10px;
   overflow: hidden;
-  transition: max-height 0.3s ease, padding 0.3s ease;
-  text-align: center;
-}
-
-.image-container.visible {
-  max-height: 200px;
-  padding-top: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .image-container img {
-  max-width: 100%;
+  width: 100%;
   height: auto;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.5s ease;
 }
 
-/* Ubicación en el mapa */
-.ubicacion {
-  padding: 40px 20px;
-  background-color: #ffffff;
+.ventaja:hover .image-container img {
+  transform: scale(1.05);
 }
 
-.ubicacion h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-  color: #333;
+/* Ubicación y Extensión */
+.ubicacion, .extension {
+  text-align: center;
 }
 
-.ubicacion p {
-  font-size: 1.1rem;
-  color: #555;
-  margin-bottom: 20px;
+.ubicacion p, .extension p {
+  max-width: 800px;
+  margin: 0 auto 30px;
+  font-size: 1.2rem;
+  color: var(--gris-oscuro);
 }
 
-.ubicacion iframe {
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+iframe {
+  border-radius: 15px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  border: none;
 }
 
-/* Extensión de Conexa */
-.extension {
-  padding: 40px 20px;
-  background-color: #f9f9f9;
+/* Botones y elementos interactivos */
+.cta-button {
+  display: inline-block;
+  background: linear-gradient(90deg, var(--cian), var(--morado));
+  color: white;
+  padding: 15px 30px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  margin-top: 30px;
+  box-shadow: 0 5px 15px rgba(0, 180, 216, 0.3);
+  transition: all 0.3s ease;
 }
 
-.extension h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-  color: #333;
+.cta-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(106, 48, 147, 0.4);
 }
 
-.extension p {
-  font-size: 1.1rem;
-  color: #555;
-  line-height: 1.6;
-}
-
-.extension iframe {
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin-top: 20px;
-}
-
-/* Estilos para el logo */
-.logo {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  width: 150px;
-  height: auto;
-  z-index: 10;
-}
-
-/* Ajustes responsivos para pantallas medianas (1024px o menos) */
+/* Responsive */
 @media (max-width: 1024px) {
-  .logo {
-    width: 150px;
-  }
-
-  .imagen-container {
-    width: 450px;
-    height: 360px;
+  .quienes-somos-content, .porque-elegirnos-content {
+    gap: 40px;
   }
 }
 
-/* Ajustes responsivos para tablets (768px o menos) */
 @media (max-width: 768px) {
-  .logo {
-    width: 120px;
-    top: 15px;
-    left: 15px;
+  .hero {
+    padding: 80px 20px;
+    min-height: 300px;
   }
-
-  .quienes-somos-content,
-  .porque-elegirnos-content {
+  
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+  
+  .hero p {
+    font-size: 1.2rem;
+  }
+  
+  .quienes-somos-content, .porque-elegirnos-content {
     flex-direction: column;
   }
-
-  .quienes-somos .imagen-container,
-  .quienes-somos .texto-container,
-  .imagen-container,
-  .texto-container {
-    max-width: 100%;
+  
+  .section-title {
+    font-size: 2rem;
   }
-
-  .quienes-somos .imagen-container,
-  .imagen-container {
-    width: 100%;
-    height: 250px; /* Altura más pequeña para móviles */
-  }
-
-  .quienes-somos .imagen-container img,
-  .imagen-container img {
-    margin-bottom: 20px;
+  
+  .ventajas-grid {
+    grid-template-columns: 1fr;
   }
 }
 
-/* Ajustes responsivos para móviles (480px o menos) */
 @media (max-width: 480px) {
-  .logo {
-    width: 80px;
-    top: 10px;
-    left: 10px;
+  .hero h1 {
+    font-size: 1.8rem;
   }
-
-  .quienes-somos .imagen-container,
-  .imagen-container {
-    height: 200px; /* Altura aún más pequeña para móviles pequeños */
+  
+  .section-title {
+    font-size: 1.8rem;
   }
-
-  .quienes-somos h2 {
-    font-size: 2rem; /* Tamaño de fuente más pequeño para móviles */
-  }
-
-  .quienes-somos .texto-container p {
-    font-size: 1.1rem; /* Tamaño de fuente más pequeño para móviles */
+  
+  .container {
+    padding: 40px 15px;
   }
 }
