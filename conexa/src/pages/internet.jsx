@@ -32,6 +32,17 @@ const Internet = () => {
       answer:
         'Ponte en contacto con nosotros a través de nuestro sitio web o llámanos al número de atención al cliente. Nuestro equipo estará encantado de ayudarte.',
     },
+    {
+      question: '¿Cuál es la cobertura y qué alcance en metros tiene el módem?',
+      answer:
+        'En cuanto al alcance del módem dentro de tu hogar, este puede variar según el tipo de construcción, interferencias y ubicación del dispositivo. Generalmente, un módem WiFi tiene un alcance de entre 10 y 30 metros en interiores. Si necesitas mayor cobertura, puedes optar por repetidores de señal o un sistema de malla WiFi.',
+    },
+    {
+      question: '¿Cuántos teléfonos y/o equipos soporta cada paquete?',
+      answer:
+        'El número de dispositivos que pueden conectarse simultáneamente depende del paquete contratado y del tipo de uso que se le dé a la conexión. A continuación, te damos una referencia aproximada:\n\n- **5MG** → Hasta 3 dispositivos para navegación básica (redes sociales, correo y navegación web).\n- **10MG** → Hasta 6 dispositivos con navegación fluida y reproducción de videos en calidad estándar.\n- **15MG** → Hasta 10 dispositivos con transmisión en HD y videollamadas sin interrupciones.\n- **20MG** → Hasta 15 dispositivos con juegos en línea, streaming en 4K y descargas rápidas.\n\nEl rendimiento también puede verse afectado por la cantidad de dispositivos conectados al mismo tiempo y el tipo de actividad realizada en cada uno. Si necesitas más velocidad o estabilidad, puedes consultar opciones como repetidores de señal o una conexión por cable ethernet.',
+    }
+    
   ];
 
   return (

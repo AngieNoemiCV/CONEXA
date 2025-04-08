@@ -57,6 +57,9 @@ const Navbar = () => {
           <Link to="/camaras" onClick={() => setIsServicesOpen(false)}>
             Instalación de cámaras de seguridad
           </Link>
+          <Link to="/paneles" onClick={() => setIsServicesOpen(false)}>
+            Instalación de paneles solares
+          </Link>
         </div>
       </div>
       <Link to="/paquetes">Paquetes</Link>

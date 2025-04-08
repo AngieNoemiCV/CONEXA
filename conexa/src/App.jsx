@@ -7,6 +7,7 @@ import Internet from './pages/internet'; // Importa la página de Internet
 import Armados from './pages/armados'; // Importa la página de Armados
 import Camaras from './pages/camaras'; // Importa la página de Cámaras
 import Mantenimiento from './pages/mantenimiento'; // Importa la página de Mantenimiento
+import Paneles from './pages/paneles';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 
@@ -24,6 +25,7 @@ function App() {
         <Route path="/armados" element={<Armados />} /> {/* Ruta para Armados */}
         <Route path="/camaras" element={<Camaras />} /> {/* Ruta para Cámaras */}
         <Route path="/mantenimiento" element={<Mantenimiento />} /> {/* Ruta para Mantenimiento */}
+        <Route path="/Paneles" element={<Paneles />} /> {/* Ruta para Paneles Solares */}
       </Routes>
       <Footer />
     </Router>

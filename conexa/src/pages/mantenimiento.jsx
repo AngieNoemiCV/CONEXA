@@ -1,6 +1,13 @@
 import React, { useState } from 'react';
-import './Mantenimiento.css';
 import { db, collection, addDoc } from '../firebase';
+import './Mantenimiento.css';
+
+// URLs de imágenes de ejemplo (reemplaza con tus propias imágenes)
+const imgVelocidad = "https://academia3e.com/wp-content/uploads/2021/08/herramientas-mantenimiento-pc-scaled.jpg";
+const imgCalentamiento = "https://centrodereparacioncompusystem.com/wp-content/uploads/2020/07/tips-mantenimiento-a-equipo-de-computo.jpg";
+const imgVidaUtil = "https://www.mgtech.cl/wp-content/uploads/2023/05/Fotos-web-1-2.jpg";
+const imgSeguridad = "https://www.gestinet.com/wp-content/uploads/2021/02/Mantenimiento-informatico.jpg";
+const imgFisico = "https://cdn.computerhoy.com/sites/navi.axelspringer.es/public/media/image/2021/09/montaje-ordenador-2472785.jpg?tf=3840x";
 
 const Mantenimiento = () => {
   const [mostrarFormulario, setMostrarFormulario] = useState(false);
@@ -8,27 +15,11 @@ const Mantenimiento = () => {
   const [correo, setCorreo] = useState('');
   const [telefono, setTelefono] = useState('');
   const [descripcion, setDescripcion] = useState('');
-  const [npiezas, setNPiezas] = useState(1);
   const [mensaje, setMensaje] = useState('');
   const [errorTelefono, setErrorTelefono] = useState('');
   const [errorCorreo, setErrorCorreo] = useState('');
 
   const regexCorreo = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-  const incrementarPiezas = () => {
-    setNPiezas(prev => prev + 1);
-  };
-
-  const decrementarPiezas = () => {
-    setNPiezas(prev => (prev > 1 ? prev - 1 : 1));
-  };
-
-  const handlePiezasChange = (e) => {
-    const value = e.target.value;
-    if (value === '' || /^[1-9]\d*$/.test(value)) {
-      setNPiezas(value === '' ? 1 : parseInt(value, 10));
-    }
-  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -58,20 +49,17 @@ const Mantenimiento = () => {
         correo,
         telefono,
         descripcion,
-        npiezas,
         tipo: 'mantenimiento',
-        fecha: new Date().toISOString(),
+        fecha: new Date().toISOString()
       };
     
       await addDoc(collection(db, 'solicitudes de mantenimiento'), datosCliente);
-      alert('¡Solicitud enviada con éxito! Estaremos en contacto contigo lo más pronto posible.');
+      setMensaje('¡Solicitud enviada con éxito! Estaremos en contacto contigo lo más pronto posible.');
       
       setNombre('');
       setCorreo('');
       setTelefono('');
       setDescripcion('');
-      setNPiezas(1);
-      setMostrarFormulario(false);
     } catch (error) {
       console.error('Error al guardar en Firestore:', error);
       setMensaje('Hubo un error al enviar tu solicitud. Inténtalo de nuevo.');
@@ -93,49 +81,64 @@ const Mantenimiento = () => {
       <section className="benefits-section">
         <h2>Beneficios de nuestro servicio</h2>
         
-        <div className="benefit-card">
+        <div className="benefit-item">
           <h3>1. Mayor velocidad y eficiencia</h3>
-          <ul>
-            <li>Eliminamos <strong>archivos basura</strong>, software obsoleto y optimizamos el sistema.</li>
-            <li><strong>Actualizamos controladores</strong> y sistemas operativos para un rendimiento fluido.</li>
-            <li>Ideal para <strong>evitar lentitud</strong> en laptops y equipos de escritorio por falta de mantenimiento.</li>
-          </ul>
+          <div className="benefit-content">
+            <img src={imgVelocidad} alt="Mayor velocidad" className="benefit-img" />
+            <ul>
+              <li>Eliminamos <strong>archivos basura</strong>, software obsoleto y optimizamos el sistema.</li>
+              <li><strong>Actualizamos controladores</strong> y sistemas operativos para un rendimiento fluido.</li>
+              <li>Ideal para <strong>evitar lentitud</strong> en laptops y equipos de escritorio por falta de mantenimiento.</li>
+            </ul>
+          </div>
         </div>
 
-        <div className="benefit-card">
+        <div className="benefit-item">
           <h3>2. Protección contra el sobrecalentamiento</h3>
-          <ul>
-            <li><strong>Limpieza profunda</strong> de ventiladores y disipadores (¡el polvo es el enemigo silencioso!).</li>
-            <li>Aplicación de <strong>pasta térmica nueva</strong> en CPUs/GPUs para un mejor enfriamiento.</li>
-            <li>Evita <strong>apagados repentinos</strong> y daños por altas temperaturas (especialmente crítico en laptops).</li>
-          </ul>
+          <div className="benefit-content">
+            <img src={imgCalentamiento} alt="Protección contra calor" className="benefit-img" />
+            <ul>
+              <li><strong>Limpieza profunda</strong> de ventiladores y disipadores (¡el polvo es el enemigo silencioso!).</li>
+              <li>Aplicación de <strong>pasta térmica nueva</strong> en CPUs/GPUs para un mejor enfriamiento.</li>
+              <li>Evita <strong>apagados repentinos</strong> y daños por altas temperaturas (especialmente crítico en laptops).</li>
+            </ul>
+          </div>
         </div>
 
-        <div className="benefit-card">
+        <div className="benefit-item">
           <h3>3. Extiende la vida útil de tu equipo</h3>
-          <ul>
-            <li>Revisión de <strong>componentes críticos</strong>: discos duros, fuentes de poder, tarjetas madre.</li>
-            <li>Prevenimos fallos por desgaste antes de que ocurran.</li>
-            <li><strong>Ahorras dinero</strong>: Un mantenimiento cuesta menos que una reparación mayor o comprar equipo nuevo.</li>
-          </ul>
+          <div className="benefit-content">
+            <img src={imgVidaUtil} alt="Extender vida útil" className="benefit-img" />
+            <ul>
+              <li>Revisión de <strong>componentes críticos</strong>: discos duros, fuentes de poder, tarjetas madre.</li>
+              <li>Prevenimos fallos por desgaste antes de que ocurran.</li>
+              <li><strong>Ahorras dinero</strong>: Un mantenimiento cuesta menos que una reparación mayor o comprar equipo nuevo.</li>
+            </ul>
+          </div>
         </div>
 
-        <div className="benefit-card">
+        <div className="benefit-item">
           <h3>4. Seguridad y prevención de desastres</h3>
-          <ul>
-            <li><strong>Diagnóstico</strong> de discos duros/SSD para evitar pérdida de información.</li>
-            <li>Eliminación de <strong>virus, spyware y ransomware</strong> que ponen en riesgo tus archivos.</li>
-            <li><strong>Backup básico</strong> de datos importantes (opcional).</li>
-          </ul>
+          <div className="benefit-content">
+            <img src={imgSeguridad} alt="Seguridad informática" className="benefit-img" />
+            <ul>
+              <li><strong>Diagnóstico</strong> de discos duros/SSD para evitar pérdida de información.</li>
+              <li>Eliminación de <strong>virus, spyware y ransomware</strong> que ponen en riesgo tus archivos.</li>
+              <li><strong>Backup básico</strong> de datos importantes (opcional).</li>
+            </ul>
+          </div>
         </div>
 
-        <div className="benefit-card">
+        <div className="benefit-item">
           <h3>5. Mantenimiento físico profesional</h3>
-          <ul>
-            <li><strong>Equipos de escritorio</strong>: Limpieza interna, revisión de conexiones y cableado.</li>
-            <li><strong>Laptops</strong>: Atención especial a baterías, teclados y sistemas de ventilación compactos.</li>
-            <li>Usamos <strong>herramientas y productos especializados</strong> para no dañar componentes delicados.</li>
-          </ul>
+          <div className="benefit-content">
+            <img src={imgFisico} alt="Mantenimiento físico" className="benefit-img" />
+            <ul>
+              <li><strong>Equipos de escritorio</strong>: Limpieza interna, revisión de conexiones y cableado.</li>
+              <li><strong>Laptops</strong>: Atención especial a baterías, teclados y sistemas de ventilación compactos.</li>
+              <li>Usamos <strong>herramientas y productos especializados</strong> para no dañar componentes delicados.</li>
+            </ul>
+          </div>
         </div>
       </section>
 
@@ -156,116 +159,92 @@ const Mantenimiento = () => {
       <section className="offer-section">
         <div className="special-offer">
           <span className="offer-badge">✨ No dudes más</span>
-          <h2>¿Te interesa nuestro servicio?</h2>
-          <button 
-            className="cta-button"
-            onClick={() => setMostrarFormulario(true)}
-          >
-            📝 Te invitamos a completar nuestro formulario y un asesor se pondrá en contacto contigo!
-          </button>
-          <p className="offer-text">Evita que tu computadora falle en el peor momento.</p>
-        </div>
-      </section>
-
-      {mostrarFormulario && (
-        <div className="formulario-overlay">
-          <div className="formulario-container">
-            <button 
-              className="cerrar-formulario"
-              onClick={() => setMostrarFormulario(false)}
-            >
-              ×
-            </button>
-            
-            <h2>Solicitud de servicio de mantenimiento</h2>
-            <p>Por favor completa tus datos y nos pondremos en contacto contigo</p>
-            
-            <form onSubmit={handleSubmit}>
-              <div className="form-group">
-                <label>Nombre completo:</label>
-                <input
-                  type="text"
-                  value={nombre}
-                  onChange={(e) => setNombre(e.target.value)}
-                  required
-                />
-              </div>
-              
-              <div className="form-group">
-                <label>Correo electrónico:</label>
-                <input
-                  type="email"
-                  value={correo}
-                  onChange={(e) => setCorreo(e.target.value)}
-                  required
-                />
-                {errorCorreo && <p className="error-message">{errorCorreo}</p>}
-              </div>
-              
-              <div className="form-group">
-                <label>Teléfono (10 dígitos):</label>
-                <input
-                  type="tel"
-                  value={telefono}
-                  onChange={(e) => setTelefono(e.target.value)}
-                  required
-                  maxLength={10}
-                />
-                {errorTelefono && <p className="error-message">{errorTelefono}</p>}
-              </div>
-
-              <div className="form-group">
-                <label>Número de equipos:</label>
-                <div className="contador-piezas">
-                  <button 
-                    type="button" 
-                    className="contador-btn" 
-                    onClick={decrementarPiezas}
-                  >
-                    -
-                  </button>
+          {!mostrarFormulario ? (
+            <>
+              <h2>¿Te interesa nuestro servicio?</h2>
+              <button 
+                className="cta-button"
+                onClick={() => setMostrarFormulario(true)}
+              >
+                📝 Te invitamos a completar nuestro formulario y un asesor se pondrá en contacto contigo!
+              </button>
+              <p className="offer-text">Evita que tu computadora falle en el peor momento.</p>
+            </>
+          ) : (
+            <div className="integrated-form">
+              <h2>Solicitud de servicio</h2>
+              <form onSubmit={handleSubmit}>
+                <div className="form-group">
+                  <label>Nombre completo:</label>
                   <input
                     type="text"
-                    value={npiezas}
-                    onChange={handlePiezasChange}
-                    className="contador-input"
+                    value={nombre}
+                    onChange={(e) => setNombre(e.target.value)}
+                    required
                   />
+                </div>
+                
+                <div className="form-group">
+                  <label>Correo electrónico:</label>
+                  <input
+                    type="email"
+                    value={correo}
+                    onChange={(e) => setCorreo(e.target.value)}
+                    required
+                  />
+                  {errorCorreo && <p className="error-message">{errorCorreo}</p>}
+                </div>
+                
+                <div className="form-group">
+                  <label>Teléfono (10 dígitos):</label>
+                  <input
+                    type="tel"
+                    value={telefono}
+                    onChange={(e) => setTelefono(e.target.value)}
+                    required
+                    maxLength={10}
+                  />
+                  {errorTelefono && <p className="error-message">{errorTelefono}</p>}
+                </div>
+                
+                <div className="form-group">
+                  <label>Describe el problema o servicio que necesitas:</label>
+                  <textarea
+                    value={descripcion}
+                    onChange={(e) => setDescripcion(e.target.value)}
+                    required
+                    rows="4"
+                  />
+                </div>
+                
+                <div className="form-actions">
+                  <button type="submit" className="submit-button">
+                    Enviar solicitud
+                  </button>
                   <button 
                     type="button" 
-                    className="contador-btn" 
-                    onClick={incrementarPiezas}
+                    className="cancel-button"
+                    onClick={() => {
+                      setMostrarFormulario(false);
+                      setMensaje('');
+                    }}
                   >
-                    +
+                    Cancelar
                   </button>
                 </div>
-              </div>
-              
-              <div className="form-group">
-                <label>¿Quieres dar detalles? Agrega marca, algún problema que tenga etc:</label>
-                <textarea
-                  value={descripcion}
-                  onChange={(e) => setDescripcion(e.target.value)}
-                  required
-                  rows="4"
-                />
-              </div>
-              
-              <button type="submit" className="enviar-formulario">
-                Enviar solicitud
-              </button>
-            </form>
-            
-            {mensaje && <p className="mensaje-formulario">{mensaje}</p>}
-          </div>
+              </form>
+              {mensaje && <p className="form-message">{mensaje}</p>}
+            </div>
+          )}
         </div>
-      )}
+      </section>
 
       <section className="why-us-section">
         <h2>¿Por qué elegirnos?</h2>
         <ul className="why-us-list">
-          <li> <strong>Técnicos certificados</strong> con experiencia en marcas como Dell, HP, Lenovo, ASUS, etc.</li>
-          <li> <strong>Servicio a domicilio</strong> (opcional) para mayor comodidad.</li>
-          <li> <strong>Garantía por escrito</strong> en nuestros trabajos.</li>
+          <li><strong>Técnicos certificados</strong> con experiencia en marcas como Dell, HP, Lenovo, ASUS, etc.</li>
+          <li><strong>Servicio a domicilio</strong> (opcional) para mayor comodidad.</li>
+          <li><strong>Garantía por escrito</strong> en nuestros trabajos.</li>
         </ul>
         <p className="final-cta">💻 <strong>No esperes a que tu equipo falle...</strong> ¡Protege tu inversión hoy!</p>
       </section>

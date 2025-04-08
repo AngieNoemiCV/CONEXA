@@ -36,7 +36,7 @@
 
   .logo {
     position: absolute;
-  top: 20px;
+  top: 8px;
   left: 20px; /* Cambiamos de right a left para colocarlo en la esquina superior izquierda */
   width: 200px; /* Tamaño grande para pantallas grandes */
   height: auto;

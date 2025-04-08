@@ -14,6 +14,10 @@ const Armados = () => {
 
   const regexCorreo = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+  // URLs de las imágenes
+  const imgPersonalizacion = "https://i.blogs.es/d15fd1/2560_3000-2/1366_2000.jpg";
+  const imgProceso = "https://img.pccomponentes.com/pcblog/542/configuraciones-pc-gaming.jpg";
+
   const handleSubmit = async (e) => {
     e.preventDefault();
   
@@ -60,7 +64,6 @@ const Armados = () => {
 
   return (
     <div className="armado-container">
-      {/* Sección Hero */}
       <section className="hero-section">
         <h1>Servicio Profesional de Armado de Computadoras</h1>
         <p className="intro-text">
@@ -68,30 +71,38 @@ const Armados = () => {
         </p>
       </section>
 
-      {/* Descripción del servicio */}
       <section className="service-description">
         <h2>¿Qué ofrecemos en nuestro servicio de armado?</h2>
         
-        <div className="service-card">
-          <h3>Personalización Total</h3>
-          <ul>
-            <li><strong>Tú eliges las piezas:</strong> Selecciona cada componente según tus preferencias y presupuesto.</li>
-            <li><strong>O nosotros te asesoramos:</strong> Si no estás seguro, nuestros expertos seleccionarán las mejores opciones según tus necesidades.</li>
-            <li><strong>Equipos balanceados:</strong> Garantizamos que todos los componentes trabajen en armonía sin cuellos de botella.</li>
-          </ul>
+        <div className="service-card-with-image">
+          <div className="service-card">
+            <h3>Personalización Total</h3>
+            <div className="service-content">
+              <img src={imgPersonalizacion} alt="Personalización de PC" className="service-image" />
+              <ul>
+                <li><strong>Tú eliges las piezas:</strong> Selecciona cada componente según tus preferencias y presupuesto.</li>
+                <li><strong>O nosotros te asesoramos:</strong> Si no estás seguro, nuestros expertos seleccionarán las mejores opciones según tus necesidades.</li>
+                <li><strong>Equipos balanceados:</strong> Garantizamos que todos los componentes trabajen en armonía sin cuellos de botella.</li>
+              </ul>
+            </div>
+          </div>
         </div>
 
-        <div className="service-card">
-          <h3>Proceso de Armado</h3>
-          <ul>
-            <li><strong>Ensamblaje profesional:</strong> Realizado por técnicos certificados con años de experiencia.</li>
-            <li><strong>Pruebas de estrés:</strong> Testeamos cada componente para garantizar estabilidad y rendimiento.</li>
-            <li><strong>Cableado perfecto:</strong> Organización impecable para mejor flujo de aire y estética.</li>
-          </ul>
+        <div className="service-card-with-image">
+          <div className="service-card">
+            <h3>Proceso de Armado</h3>
+            <div className="service-content">
+              <img src={imgProceso} alt="Proceso de armado de PC" className="service-image" />
+              <ul>
+                <li><strong>Ensamblaje profesional:</strong> Realizado por técnicos certificados con años de experiencia.</li>
+                <li><strong>Pruebas de estrés:</strong> Testeamos cada componente para garantizar estabilidad y rendimiento.</li>
+                <li><strong>Cableado perfecto:</strong> Organización impecable para mejor flujo de aire y estética.</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Ventajas */}
       <section className="advantages-section">
         <h2>Ventajas de armar tu PC con nosotros</h2>
         
@@ -122,7 +133,6 @@ const Armados = () => {
         </div>
       </section>
 
-      {/* Proceso de compra */}
       <section className="process-section">
         <h2>¿Cómo funciona nuestro servicio?</h2>
         <ol className="process-steps">
@@ -144,8 +154,7 @@ const Armados = () => {
         </ol>
       </section>
 
-      {/* Formulario integrado en el dashboard */}
-      <section className={`form-section ${mostrarFormulario ? 'active' : ''}`}>
+      <section className="form-section">
         {!mostrarFormulario ? (
           <div className="cta-container">
             <h2>¿Listo para tener la computadora perfecta para ti?</h2>
@@ -206,12 +215,12 @@ const Armados = () => {
               </div>
               
               <div className="form-actions">
-                <button type="submit" className="enviar-formulario">
+                <button type="submit" className="submit-button">
                   Enviar solicitud
                 </button>
                 <button 
                   type="button" 
-                  className="cancelar-formulario"
+                  className="cancel-button"
                   onClick={() => {
                     setMostrarFormulario(false);
                     setMensaje('');
@@ -222,7 +231,7 @@ const Armados = () => {
               </div>
             </form>
             
-            {mensaje && <p className="mensaje-formulario">{mensaje}</p>}
+            {mensaje && <p className="form-message">{mensaje}</p>}
           </div>
         )}
       </section>
